@@ -8,5 +8,8 @@ require("conform").setup({
 		python = { "isort", "black" },
 		rust = { "rustfmt", lsp_format = "fallback" },
 		javascript = { "oxfmt", "prettier", "prettierd", stop_after_first = true },
+		javascriptreact = { "oxfmt", "prettier", "prettierd", stop_after_first = true },
+		typescript = { "oxfmt", "prettier", "prettierd", stop_after_first = true },
+		typescriptreact = { "oxfmt", "prettier", "prettierd", stop_after_first = true },
 	},
 })

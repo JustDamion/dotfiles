@@ -11,8 +11,8 @@ require("mini.pick").setup({
 
 vim.keymap.set("n", "<leader>sh", function()
 	MiniPick.builtin.help()
-end, { silent = true })
+end, { desc = "[S]earch [H]elp" })
 
 vim.keymap.set("n", "<leader>sf", function()
 	MiniPick.builtin.files({ tool = "rg" })
-end)
+end, { desc = "[S]earch [F]iles" })

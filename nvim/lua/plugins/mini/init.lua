@@ -14,3 +14,5 @@ require("mini.cursorword").setup()
 
 require("plugins.mini.pick")
 require("plugins.mini.clue")
+
+vim.keymap.set("n", "<leader>e", "<cmd>lua MiniFiles.open()<cr>", { desc = "File [E]xplorer" })
