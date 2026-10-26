@@ -1,19 +1,21 @@
 local map = vim.keymap.set
 
--- Search
+-- Search and navigation
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+map("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Next buffer" })
+map("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
+map("n", "<leader>e", function()
+	MiniFiles.open()
+end, { desc = "File explorer" })
 
--- Files and windows
-map("n", "<leader>w", "<cmd>write<CR>", { desc = "Write file" })
-map("n", "<leader>q", "<cmd>quit<CR>", { desc = "Quit window" })
+-- Files
+map("n", "<leader>fw", "<cmd>write<CR>", { desc = "Write file" })
+map("n", "<leader>fq", "<cmd>quit<CR>", { desc = "Quit window" })
+
+-- Buffers
 map("n", "<leader>bd", function()
 	MiniBufremove.delete(0, false)
 end, { desc = "Delete buffer" })
-
--- Window navigation
-for _, key in ipairs({ "h", "j", "k", "l" }) do
-	map("n", "<C-" .. key .. ">", "<C-w>" .. key, { desc = "Go to window " .. key })
-end
 
 -- Window resizing
 map("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
@@ -31,10 +33,13 @@ map("n", "N", "Nzzzv")
 map("x", "<", "<gv")
 map("x", ">", ">gv")
 
--- Diagnostics
-map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Diagnostics at cursor" })
-
--- Formatting
+-- Code
+map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Diagnostics at cursor" })
 map({ "n", "x" }, "<leader>cf", function()
 	require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "Format buffer" })
+
+-- Git
+map("n", "<leader>go", function()
+	MiniDiff.toggle_overlay()
+end, { desc = "Toggle git overlay" })

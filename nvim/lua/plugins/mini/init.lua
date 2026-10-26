@@ -1,5 +1,3 @@
-local map = vim.keymap.set
-
 require("mini.icons").setup()
 
 local notify = require("mini.notify")
@@ -55,16 +53,3 @@ require("plugins.mini.files")
 require("plugins.mini.pick")
 require("mini.extra").setup()
 require("plugins.mini.clue")
-
-map("n", "<leader>e", function()
-	local name = vim.api.nvim_buf_get_name(0)
-	if name == "" or vim.bo.buftype ~= "" then
-		MiniFiles.open()
-		return
-	end
-	MiniFiles.open(name)
-end, { desc = "File explorer" })
-
-map("n", "<leader>go", function()
-	MiniDiff.toggle_overlay()
-end, { desc = "Toggle git overlay" })
