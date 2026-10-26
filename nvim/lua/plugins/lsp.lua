@@ -29,7 +29,7 @@ require("mason-lspconfig").setup({
 })
 
 require("mason-tool-installer").setup({
-	ensure_installed = { "oxfmt", "stylua" },
+	ensure_installed = { "oxfmt", "stylua", "tree-sitter-cli" },
 })
 
 vim.lsp.config("lua_ls", {

@@ -11,9 +11,6 @@ require("mini.bracketed").setup()
 require("mini.bufremove").setup()
 require("mini.cursorword").setup()
 require("mini.diff").setup()
-require("mini.files").setup({
-	windows = { preview = true, width_focus = 40, width_preview = 60 },
-})
 require("mini.git").setup()
 
 local hipatterns = require("mini.hipatterns")
@@ -54,7 +51,7 @@ starter.setup({
 
 require("mini.statusline").setup()
 require("mini.tabline").setup()
-
+require("plugins.mini.files")
 require("plugins.mini.pick")
 require("mini.extra").setup()
 require("plugins.mini.clue")
